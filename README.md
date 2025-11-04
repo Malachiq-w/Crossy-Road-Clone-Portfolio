@@ -1,6 +1,6 @@
 # Crossy-Road-Portfolio
 
-#Hop, dodge, and dash your way through chaotic traffic and wild terrain in this addictive Crossy Road-inspired arcade adventure!
+Hop, dodge, and dash your way through chaotic traffic and wild terrain in this addictive Crossy Road-inspired arcade adventure!
 
 ![Project Timeline](https://github.com/Malachiq-w/Crossy-Road-Clone-Portfolio/blob/main/images/Crossy%20Road%20Clone%20Timeline.png?raw=true)
 
