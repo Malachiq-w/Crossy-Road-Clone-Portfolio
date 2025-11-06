@@ -1,16 +1,12 @@
-class CrossyRoad {
-  // Member Variables
-  int x,y,w,h, speed;
-  PImage l1
+Log log1;
 
-  //Constructor
+void setup() {
+  log1 = new Log();
 
-  // Member Methods
+}
 
-  void display() {
-    
-  }
-
-  void move() {}
+void draw*() {
+  background(128);
+  log1.display();
 
 }
