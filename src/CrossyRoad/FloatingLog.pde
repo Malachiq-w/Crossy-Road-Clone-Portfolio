@@ -4,7 +4,10 @@ class Log {
   PImage l1;
 
   //Constructor
-  Log() {}
+  Log() {
+    l1 = loadImage("log1.png")
+
+  }
 
   //Member Methods
 
