@@ -12,6 +12,7 @@ class Log {
     image(l1,x,y);
   }
 
-void move() {}
+void move() {
+}
 
 }
