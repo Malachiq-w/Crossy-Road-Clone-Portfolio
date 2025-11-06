@@ -8,6 +8,7 @@ Hop, dodge, and dash your way through chaotic traffic and wild terrain in this a
 
 ![CrossyRoadUIMockup](https://github.com/Malachiq-w/Crossy-Road-Clone-Portfolio/blob/main/images/CrossyRoadUI.png?raw=true)
 
+![CrossyRoadCloneUML](https://github.com/Malachiq-w/Crossy-Road-Clone-Portfolio/blob/main/images/CrossyRoadCloneUML.png?raw=true)
 
 
 ## Barton Group
