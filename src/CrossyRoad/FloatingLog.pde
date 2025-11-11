@@ -1,21 +1,16 @@
 class Log {
-  //Member Variables
-  int x,y,w,h, speed;
-  PImage l1;
+  int x, y, w, h, speed;
 
-  //Constructor
-  Log() {
-    l1 = loadImage("log1.png")
-
+  Log (int x, int y) {
+    this.x = x;
+    this.y = y;
+    w = 80;
+    h = 30;
+    speed = int(random(1, 5));
   }
-
-  //Member Methods
 
   void display() {
-    image(l1,x,y);
+    fill(#341C1C);
+    rect(x, y, w, h, 5);
   }
-
-void move() {
-}
-
 }
