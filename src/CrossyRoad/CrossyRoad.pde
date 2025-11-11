@@ -5,7 +5,7 @@ void setup() {
 
 }
 
-void draw*() {
+void draw() {
   background(128);
   log1.display();
 
