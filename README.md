@@ -13,5 +13,8 @@ Hop, dodge, and dash your way through chaotic traffic and wild terrain in this a
 
 ## Barton Group
 - Malachi Chaya (Malachiq-w@github)
+  Implement Screens
 - Joshua Maki (JoshuaM522@github)
+  Work on screen code and Train
 - Shivan Sharma (ShivanSharma24)
+  Work on screen code and CarTruck
