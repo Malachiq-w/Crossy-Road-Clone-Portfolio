@@ -7,6 +7,7 @@ Button btnPlay, btnPause, btnUnpause;
 // Crossy Road globals
 ArrayList<Log> logs = new ArrayList<Log>();
 ArrayList<Train> trains = new ArrayList<Train>();
+ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
 Chicken chicken1;
 int tile = 20;
 
@@ -29,6 +30,11 @@ void setup() {
   trains.add(new Train(100, 400));
   trains.add(new Train(-150, 445));
   trains.add(new Train(-300, 490));
+  
+  // Add initial vehicles
+  vehicles.add(new Vehicle(-50, 150));
+  vehicles.add(new Vehicle(-200, 250));
+  vehicles.add(new Vehicle(-350, 350));
 }
 
 // -------------------------------------------
@@ -49,6 +55,7 @@ void draw() {
       drawGameOver();
       break;
     case 'a':
+      break;
   }
 }
 
@@ -100,7 +107,7 @@ void drawPlay() {
   background(200);
   
   // Draw logs
-  for (int i = 0; i < logs.size(); i++) {
+  for (int i = logs.size() - 1; i >= 0; i--) {
     Log l = logs.get(i);
     l.display();
     l.move();
@@ -111,13 +118,24 @@ void drawPlay() {
   }
 
   // Draw trains
-  for (int i = 0; i < trains.size(); i++) {
+  for (int i = trains.size() - 1; i >= 0; i--) {
     Train t = trains.get(i);
     t.display();
     t.move();
     if (t.remove) {
       trains.remove(i);
       trains.add(new Train(-t.length, t.y));
+    }
+  }
+  
+  // Draw vehicles
+  for (int i = vehicles.size() - 1; i >= 0; i--) {
+    Vehicle v = vehicles.get(i);
+    v.display();
+    v.move();
+    if (v.remove) {
+      vehicles.remove(i);
+      vehicles.add(new Vehicle(-v.w, v.y)); // respawn on the left
     }
   }
 
@@ -146,6 +164,7 @@ void drawGameOver() {
   fill(0);
   text("GAME OVER", width/2, height/2);
 }
+
 // -------------------------------------------
 // KEYBOARD CONTROLS
 // -------------------------------------------
