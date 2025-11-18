@@ -1,19 +1,3 @@
-Train;
-
-void setup() {
-  size(600, 600);
-  train = new Train(-200, 280, 3);   // start off-screen
-}
-
-void draw() {
-  background(220);
-  
-  drawCrossroads();
-  
-  train.update();
-  train.display();
-}
-
 class Train {
   float x, y;     // position
   float speed;    // speed
