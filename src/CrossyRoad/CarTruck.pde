@@ -1,50 +1,38 @@
-Vehicle car;
-Vehicle truck;
-
-void setup() {
-  size(700, 700);
-
-  car = new Vehicle(0, 150, 2, 40, 20, color(255, 0, 0));   // red car
-  truck = new Vehicle(0, 250, 1, 80, 30, color(0, 0, 255)); // blue truck
-}
-
-void draw() {
-  background(300);
-
-  car.update();
-  car.show();
-
-  truck.update();
-  truck.show();
-}
-
-
 class Vehicle {
-  float x, y;
-  float speed;
-  float w, h;
+  int x, y, w, h, speed;
+  boolean remove;
   color c;
 
-  Vehicle(float x, float y, float speed, float w, float h, color c) {
+  Vehicle(int x, int y) {
     this.x = x;
     this.y = y;
-    this.speed = speed;
-    this.w = w;
-    this.h = h;
-    this.c = c;
-  }
+    remove = false;
 
-  void update() {
-    x += speed;
-
-    // reset when off screen (loop like Crossy Road)
-    if (x > width) {
-      x = -w;
+    // Randomly choose car or truck
+    if (random(1) < 0.5) {
+      // Car
+      w = 40;
+      h = 20;
+      c = color(255, 0, 0); // red
+      speed = int(random(2, 5));
+    } else {
+      // Truck
+      w = 80;
+      h = 30;
+      c = color(0, 0, 255); // blue
+      speed = int(random(1, 3));
     }
   }
 
-  void show() {
+  void display() {
     fill(c);
-    rect(x, y, w, h);
+    rect(x, y, w, h, 5); // Rounded corners like Log
+  }
+
+  void move() {
+    x += speed;
+    if (x > width) {
+      remove = true;
+    }
   }
 }
