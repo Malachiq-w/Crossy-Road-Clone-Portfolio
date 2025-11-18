@@ -6,7 +6,7 @@ class Train {
     x = startX;
     y = startY;
     length = 180;
-    speed = random(2, 5);
+    speed = random(1, 3);
     remove = false;
   }
 
