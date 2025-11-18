@@ -48,14 +48,6 @@ void draw() {
       drawGameOver();
       break;
     case 'a':
-      drawStats();
-      break;
-    case 'm':
-      drawMenu();
-      break;
-    case 't':
-      drawSettings();
-      break;
   }
 }
 
@@ -153,31 +145,6 @@ void drawGameOver() {
   fill(0);
   text("GAME OVER", width/2, height/2);
 }
-
-void drawStats() {
-  background(255, 255, 150);
-  textAlign(CENTER);
-  textSize(48);
-  fill(0);
-  text("STATS", width/2, height/2);
-}
-
-void drawMenu() {
-  background(120, 200, 140);
-  textAlign(CENTER);
-  textSize(48);
-  fill(0);
-  text("MENU", width/2, 50);
-}
-
-void drawSettings() {
-  background(200, 150, 120);
-  textAlign(CENTER);
-  textSize(48);
-  fill(0);
-  text("SETTINGS", width/2, 50);
-}
-
 // -------------------------------------------
 // KEYBOARD CONTROLS
 // -------------------------------------------
@@ -194,34 +161,5 @@ void keyPressed() {
     if (keyCode == UP || key == 'W' || key == 'w') chicken1.y -= tile;
     if (keyCode == RIGHT || key == 'D' || key == 'd') chicken1.x += tile;
     if (keyCode == DOWN || key == 'S' || key == 's') chicken1.y += tile;
-  }
-}
-
-// -------------------------------------------
-// BUTTON CLASS
-// -------------------------------------------
-class Button {
-  String label;
-  float x, y, w, h;
-  
-  Button(String label, float x, float y, float w, float h) {
-    this.label = label;
-    this.x = x;
-    this.y = y;
-    this.w = w;
-    this.h = h;
-  }
-  
-  void display() {
-    fill(100);
-    rect(x, y, w, h, 10);
-    fill(255);
-    textAlign(CENTER, CENTER);
-    textSize(20);
-    text(label, x + w/2, y + h/2);
-  }
-  
-  boolean clicked() {
-    return mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h;
   }
 }
