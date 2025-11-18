@@ -13,6 +13,7 @@ int tile = 20;
 // -------------------------------------------
 void setup() {
   size(700, 700);
+  frameRate(120);
   
   // Buttons
   btnPlay = new Button("Play Game", width/2 - 100, height/2, 200, 60); // Centered Play button
