@@ -7,7 +7,7 @@ class Log {
     this.y = y;
     w = 80;
     h = 30;
-    speed = int(random(1, 5));
+    speed = int(random(2, 4));
     remove = false;
   }
 
