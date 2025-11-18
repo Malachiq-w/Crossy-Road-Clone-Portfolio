@@ -6,7 +6,6 @@ class Chicken {
     this.y = y;
     w = 30;
     h = 30;
-    speed = int(random(1, 5));
   }
 
   void display() {
