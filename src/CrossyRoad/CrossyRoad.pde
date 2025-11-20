@@ -85,6 +85,8 @@ void mousePressed() {
 // -------------------------------------------
 // SCREEN DRAW METHODS
 // -------------------------------------------
+
+// Shivan Sharma
 void drawStart() {
   background(100, 160, 200); // Blue background
   textAlign(CENTER);
@@ -103,6 +105,7 @@ void drawStart() {
   btnPlay.display();
 }
 
+// Malachi Chaya
 void drawPlay() {
   background(200);
   
@@ -146,6 +149,7 @@ void drawPlay() {
   btnPause.display();
 }
 
+// Joshua Maki
 void drawPause() {
   background(180, 180, 255);
   textAlign(CENTER);
