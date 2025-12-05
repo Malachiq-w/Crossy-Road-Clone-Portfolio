@@ -12,15 +12,16 @@ Chicken chicken1;
 int tile = 20;
 
 // -------------------------------------------
+
 void setup() {
   size(700, 700);
   frameRate(120);
-  
+
   // Buttons
   btnPlay = new Button("Play Game", width/2 - 100, height/2, 200, 60); // Centered Play button
   btnPause = new Button("Pause", 550, 20, 100, 50);
   btnUnpause = new Button("Resume", width/2 - 100, height/2, 200, 60); // Centered Resume button
-  
+
   // Initialize game objects
   chicken1 = new Chicken(350, 600);
   logs.add(new Log(-50, 100));
@@ -30,7 +31,7 @@ void setup() {
   trains.add(new Train(100, 400));
   trains.add(new Train(-150, 445));
   trains.add(new Train(-300, 490));
-  
+
   // Add initial vehicles
   vehicles.add(new Vehicle(-50, 150));
   vehicles.add(new Vehicle(-200, 250));
@@ -38,9 +39,10 @@ void setup() {
 }
 
 // -------------------------------------------
+
 void draw() {
   background(255);
-  
+
   switch(screen) {
     case 's':
       drawStart();
@@ -62,6 +64,7 @@ void draw() {
 // -------------------------------------------
 // MOUSE CLICK HANDLER
 // -------------------------------------------
+
 void mousePressed() {
   switch(screen) {
     case 's':
@@ -90,17 +93,17 @@ void mousePressed() {
 void drawStart() {
   background(100, 160, 200); // Blue background
   textAlign(CENTER);
-  
+
   // Game title
   textSize(64);
   fill(255);
   text("CROSSY ROAD", width/2, height/2 - 150);
-  
+
   // Instructions
   textSize(24);
   text("Use Arrow Keys or WASD to move the chicken", width/2, height/2 - 80);
   text("Press 'P' to pause/unpause during the game", width/2, height/2 - 50);
-  
+
   // Play button
   btnPlay.display();
 }
@@ -108,7 +111,7 @@ void drawStart() {
 // Malachi Chaya
 void drawPlay() {
   background(200);
-  
+
   // Draw logs
   for (int i = logs.size() - 1; i >= 0; i--) {
     Log l = logs.get(i);
@@ -130,7 +133,7 @@ void drawPlay() {
       trains.add(new Train(-t.length, t.y));
     }
   }
-  
+
   // Draw vehicles
   for (int i = vehicles.size() - 1; i >= 0; i--) {
     Vehicle v = vehicles.get(i);
@@ -142,9 +145,17 @@ void drawPlay() {
     }
   }
 
+  // Check if the chicken rides on a log or collides with vehicles or trains
+  if (chicken1.checkCollision(vehicles, trains) || chicken1.isOutOfBounds()) {
+    screen = 'g'; // If collision happens, game over
+  } else {
+    // Allow chicken to ride on logs
+    chicken1.rideLog(logs);
+  }
+
   // Draw chicken
   chicken1.display();
-  
+
   // Draw pause button
   btnPause.display();
 }
@@ -156,7 +167,7 @@ void drawPause() {
   textSize(48);
   fill(0);
   text("PAUSE", width/2, height/2 - 100);
-  
+
   // Draw Resume button (centered)
   btnUnpause.display();
 }
@@ -172,6 +183,7 @@ void drawGameOver() {
 // -------------------------------------------
 // KEYBOARD CONTROLS
 // -------------------------------------------
+
 void keyPressed() {
   // Toggle pause with 'P' key
   if (key == 'p' || key == 'P') {
