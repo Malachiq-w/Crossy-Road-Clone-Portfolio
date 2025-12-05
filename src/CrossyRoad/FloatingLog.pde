@@ -7,7 +7,7 @@ class Log {
     this.y = y;
     w = 80;
     h = 30;
-    speed = int(random(2, 4));
+    speed = int(random(1, 2));
     remove = false;
   }
 
@@ -15,7 +15,6 @@ class Log {
     fill(#341C1C);
     rect(x, y, w, h, 5);
   }
-
   void move() {
     x += speed;
     if (x > width) {
