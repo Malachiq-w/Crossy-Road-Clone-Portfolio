@@ -22,8 +22,6 @@ class Train {
 
   void move() {
     x += speed;
-    if (x > width + length) {
-      remove = true;
-    }
+    if (x > width + length) remove = true;
   }
 }
