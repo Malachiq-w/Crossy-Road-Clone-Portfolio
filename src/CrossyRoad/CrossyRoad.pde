@@ -3,6 +3,7 @@
 // -------------------------------------------
 char screen = 's';   // s = start, m = menu, t = settings, p = play, u = pause, g = game over, a = app stats
 Button btnPlay, btnPause, btnUnpause;
+Button btnMainMenu; // <-- ADDED
 
 // Crossy Road globals
 ArrayList<Log> logs = new ArrayList<Log>();
@@ -22,6 +23,7 @@ void setup() {
   btnPlay = new Button("Play Game", width/2 - 100, height/2, 200, 60); // Centered Play button
   btnPause = new Button("Pause", 550, 20, 100, 50);
   btnUnpause = new Button("Resume", width/2 - 100, height/2, 200, 60); // Centered Resume button
+  btnMainMenu = new Button("Main Menu", width/2 - 100, height/2 + 80, 200, 60); // <-- ADDED
 
   // Initialize game objects
   chicken1 = new Chicken(350, 600);
@@ -82,6 +84,12 @@ void mousePressed() {
     case 'u':
       if (btnUnpause.clicked()) {
         screen = 'p';
+      }
+      break;
+    case 'g': // <-- ADDED
+      if (btnMainMenu.clicked()) {
+        resetGame();   // Reset everything
+        screen = 's';  // Go back to start
       }
       break;
   }
@@ -180,6 +188,8 @@ void drawGameOver() {
   textSize(48);
   fill(0);
   text("GAME OVER", width/2, height/2);
+
+  btnMainMenu.display(); // <-- ADDED
 }
 
 // -------------------------------------------
@@ -200,4 +210,28 @@ void keyPressed() {
     if (keyCode == RIGHT || key == 'D' || key == 'd') chicken1.x += tile;
     if (keyCode == DOWN || key == 'S' || key == 's') chicken1.y += tile;
   }
+}
+
+// -------------------------------------------
+// RESET GAME (ADDED)
+// -------------------------------------------
+
+void resetGame() {
+  logs.clear();
+  trains.clear();
+  vehicles.clear();
+
+  chicken1 = new Chicken(350, 600);
+
+  logs.add(new Log(-50, 100));
+  logs.add(new Log(-200, 200));
+  logs.add(new Log(-350, 300));
+
+  trains.add(new Train(100, 400));
+  trains.add(new Train(-150, 445));
+  trains.add(new Train(-300, 490));
+
+  vehicles.add(new Vehicle(-50, 150));
+  vehicles.add(new Vehicle(-200, 250));
+  vehicles.add(new Vehicle(-350, 350));
 }
