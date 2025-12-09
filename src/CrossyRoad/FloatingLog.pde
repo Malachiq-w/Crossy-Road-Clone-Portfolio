@@ -1,3 +1,4 @@
+// Malachi Chaya
 class Log {
   int x, y, w, h, speed;
   boolean remove;
