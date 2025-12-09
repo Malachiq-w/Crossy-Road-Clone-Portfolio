@@ -1,28 +1,45 @@
-// Malachi Chaya
-class Train {
-  int x, y, length, height, speed;
-  boolean remove;
 
-  Train(int x, int y) {
+// -------------------------------------------
+// BUTTON CLASS (ADDED)
+// -------------------------------------------
+
+class Button {
+  String label;
+  float x, y, w, h;
+  boolean hover = false;
+
+  Button(String label, float x, float y, float w, float h) {
+    this.label = label;
     this.x = x;
     this.y = y;
-    length = 120;
-    height = 25;
-    speed = int(random(2, 4));
-    remove = false;
+    this.w = w;
+    this.h = h;
   }
 
-  void display(float camY) { // Added camY for vertical scrolling
-    fill(100, 100, 100); // Gray train body, same as original graphics
-    rect(x, y + int(camY), length, height, 5);
-    fill(200, 0, 0); // Windows or details
-    rect(x + 10, y + 5 + int(camY), length - 20, height - 10, 3);
+  void display() {
+    hover = isMouseHover();
+
+    if (hover) fill(220);
+    else fill(200);
+
+    stroke(0);
+    strokeWeight(2);
+    rect(x, y, w, h, 12);
+
+    fill(0);
+    textAlign(CENTER, CENTER);
+    textSize(20);
+    text(label, x + w/2, y + h/2);
   }
 
-  void move() {
-    x += speed;
-    if (x > width) {
-      remove = true;
-    }
+  boolean isMouseHover() {
+    return mouseX > x &&
+           mouseX < x + w &&
+           mouseY > y &&
+           mouseY < y + h;
+  }
+
+  boolean clicked() {
+    return isMouseHover();
   }
 }
