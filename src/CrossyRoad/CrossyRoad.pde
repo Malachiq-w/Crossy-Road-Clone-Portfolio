@@ -12,6 +12,7 @@ Chicken chicken1;
 int tile = 20;
 
 // -------------------------------------------
+// Malachi Chaya
 
 void setup() {
   size(700, 700);
@@ -39,6 +40,7 @@ void setup() {
 }
 
 // -------------------------------------------
+// Malachi Chaya
 
 void draw() {
   background(255);
