@@ -9,14 +9,14 @@ class Chicken {
     h = 30;
   }
 
-  void display() {
+  void display(float camY) { // Added camY for scrolling
     fill(245, 200, 60);
-    rect(x, y, 25, 28, 5);
-    rect(x+5, y+1, 15, 15);
+    rect(x, y + int(camY), 25, 28, 5);
+    rect(x + 5, y + 1 + int(camY), 15, 15);
     fill(220, 50, 40);
-    rect(x+10, y+5, 5, 10);
+    rect(x + 10, y + 5 + int(camY), 5, 10);
     fill(255, 140, 0);
-    rect(x+9, y-8, 7, 10);
+    rect(x + 9, y - 8 + int(camY), 7, 10);
   }
 
   boolean checkCollision(ArrayList<Vehicle> vehicles, ArrayList<Train> trains) {
