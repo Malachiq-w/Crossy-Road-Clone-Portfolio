@@ -24,9 +24,9 @@ class Vehicle {
     }
   }
 
-  void display() {
+  void display(float camY) { // Added camY parameter for scrolling
     fill(c);
-    rect(x, y, w, h, 5);
+    rect(x, y + int(camY), w, h, 5);
   }
 
   void move() {
