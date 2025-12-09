@@ -1,6 +1,7 @@
 // -------------------------------------------
 // GLOBALS
 // -------------------------------------------
+// Everyone
 char screen = 's';   // s = start, m = menu, t = settings, p = play, u = pause, g = game over, a = app stats
 Button btnPlay, btnPause, btnUnpause;
 
