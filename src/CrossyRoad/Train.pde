@@ -1,3 +1,4 @@
+Joshua Maki
 class Train {
   float x, y, length, speed;
   boolean remove;
