@@ -12,10 +12,11 @@ class Log {
     remove = false;
   }
 
-  void display() {
+  void display(float camY) { // Added camY for scrolling
     fill(#341C1C);
-    rect(x, y, w, h, 5);
+    rect(x, y + int(camY), w, h, 5);
   }
+
   void move() {
     x += speed;
     if (x > width) {
